@@ -5,7 +5,7 @@ podTemplate(label: label, containers: [
     node(label) {
         stage('testing kubectl') {
             container('kubectl') {
-                sh 'kubectl cluster-info'
+                sh 'kubectl apply -f https://k8s.io/examples/application/deployment.yaml'
             }
         }
     }
