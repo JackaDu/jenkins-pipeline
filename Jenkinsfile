@@ -4,11 +4,8 @@ podTemplate(label: label, serviceAccount: 'cd5-jenkins', containers: [
   ]) {
     node(label) {
         stage('testing kubectl') {
-            git 'https://github.com/jenkinsci/kubernetes-plugin.git'
             container('kubectl') {
-                stage('try kubectl') {
-                    sh 'kubectl get pods'
-                }
+                sh 'kubectl cluster-info'
             }
         }
     }
