@@ -1,5 +1,5 @@
 def label = "mypod-${UUID.randomUUID().toString()}"
-podTemplate(label: label, serviceAccount: 'cd5-jenkins', containers: [
+podTemplate(label: label, containers: [
     containerTemplate(name: 'kubectl', image: 'lachlanevenson/k8s-kubectl:v1.12.2', ttyEnabled: true, command: 'cat'),
   ]) {
     node(label) {
